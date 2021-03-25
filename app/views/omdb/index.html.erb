@@ -1,0 +1,28 @@
+<h1>OMDB</h1>
+ <%= render "form", omdb: @omdb %>
+  <h2>
+    <div class="row">
+    <div class="col-sm-12"><%= @mess %> </div>
+    </div>
+  </h2>
+  <% unless (@response==nil) %>
+<h2>
+  <div class="row">
+    <div class="col-sm-2">Imdb Id </div>
+    <div class="col-sm-2">Type </div>
+    <div class="col-sm-6">Titel </div>
+    <div class="col-sm-2">År</div>
+  </div>
+</h2>
+
+
+      <% @response.each do |key| %>
+        <div class="row">
+          <div class="col-sm-2"><%= key["imdbID"] %> </div>
+          <div class="col-sm-2"><%= key["Type"] %> </div>
+          <div class="col-sm-6"><%= link_to key["Title"],:controller => "omdb", :action => "show", :show => key["imdbID"],:search => params["search"] %></div> 
+          <div class="col-sm-2"><%= key["Year"] %> </div>
+         </div>
+      <% end %>
+  <% end %>
+<hr>

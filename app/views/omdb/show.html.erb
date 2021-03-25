@@ -1,0 +1,50 @@
+<%= link_to "< Tilbage til liste ",:controller => "omdb", :action => "index",:search => @b %>
+<hr>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col">
+        <h2><%= @movie["Title"] %></h2>
+      </div>
+    </div>  
+  </div>  
+</div>  
+<div class="row">
+  <div class="col-sm-8">
+    <div class="row">
+      <div class="col-sm-3">
+        <div>År:</div>
+      </div>  
+      <div class="col-sm-9">
+        <%= @movie["Year"] %>
+      </div>  
+    </div>  
+    <div class="row">
+      <div class="col-sm-3">
+        ID:
+      </div>  
+      <div class="col-sm-9">
+        <%= @movie["imdbID"] %>
+      </div>  
+    </div>  
+    <div class="row">
+      <div class="col-sm-3">
+        Beskrivelse:
+      </div>  
+      <div class="col-sm-9">
+        <%= @movie["Plot"] %>
+      </div>  
+    </div>  
+  </div>
+  <div class="col-sm-4">
+    <div class="row">
+        <div class="col-sm-12">
+          <% unless @movie["Poster"]=="N/A" %>   
+            <img src=<%= @movie["Poster"] %> alt="Plakat" height="200">
+          <% end %>
+        </div>  
+    </div>  
+  </div>
+</div>  
+<hr>
+

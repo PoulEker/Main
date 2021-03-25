@@ -1,0 +1,75 @@
+<%= form_with model: movie do |form| %>
+<% if !@movie.errors.empty? %>
+   <div>
+       <ul>
+         <% @movie.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+         <% end %>
+      </ul>
+   </div>
+<% end %>
+<hr>
+<div class="row">
+  <div class="col-sm-7">
+    <div class="row">
+      <div class="col-sm-4">
+        <%= form.label :"Titel:" %>
+      </div>  
+      <div class="col-sm-8">
+       <%= form.text_field :title %>
+      </div>  
+    </div>  
+    <div class="row">
+      <div class="col-sm-4">
+        <%= form.label :"År:" %>
+      </div>  
+      <div class="col-sm-8">
+        <%= form.text_field :year %>
+      </div>  
+    </div>  
+     <div class="row">
+      <div class="col-sm-4">
+         <%= form.label :"ID:" %>
+      </div>  
+      <div class="col-sm-8">
+         <%= form.text_field :imdbID %>
+      </div>  
+    </div>  
+    <div class="row">
+      <div class="col-sm-4">
+        <%= form.label :"Beskrivelse:" %>
+      </div>  
+      <div class="col-sm-8">
+        <%= form.text_area :description, cols: 30, rows: 10%>
+      </div>  
+    </div>  
+  </div>
+  <div class="col-sm-3">
+    <div class="row">
+      <div class="col-sm-4">
+            <%= form.label :"Plakat: " %>
+      </div>  
+      <div class="col-sm-8">
+        <% unless !@upload %>   
+          <%= form.file_field :poster %>  
+        <% end %>
+      </div>  
+      <div class="row">
+        <div class="col-sm-4">
+            &nbsp
+        </div>  
+        <div class="col-sm-8">
+          <% unless movie.poster.blank? %>   
+            <img src=<%= @movie.poster %> alt="Plakat" height="200">
+          <% end %>
+        </div>  
+      </div>  
+    </div>  
+  </div>
+</div>
+<hr>
+<div>
+  <%= form.submit "Gem film" %>
+</div>
+
+<% end %>

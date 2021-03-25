@@ -1,0 +1,20 @@
+<h1>Film</h1>
+<hr>
+<h2>
+  <div class="row">
+    <div class="col-sm-3">Titel </div>
+    <div class="col-sm-2">År </div>
+    <div class="col-sm-5">Beskrivelse</div>
+  </div>
+</h2>
+<hr>
+<% @movie.each do |movie| %>
+  <div class="row">
+    <div class="col-sm-3"><%= link_to movie.title, movie %> </div>
+    <div class="col-sm-2"><%= movie.year%> </div>
+    <div class="col-sm-5"><%= movie.description %> </div>
+  </div>
+<% end %>
+<hr>
+
+<%= link_to "Opret ny film", new_movie_path %>

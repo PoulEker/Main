@@ -1,0 +1,65 @@
+<%= link_to "< Tilbage til liste ", root_path %>
+<hr>
+<div class="row">
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col">
+        <h1><%= @movie.title %></h1>
+      </div>
+    </div>  
+    <div class="row">
+      <div class="col-sm-4">
+        År:
+      </div>  
+      <div class="col-sm-8">
+        <%= @movie.year %>
+      </div>  
+    </div>  
+    <div class="row">
+      <div class="col-sm-4">
+        ID:
+      </div>  
+      <div class="col-sm-8">
+        <%= @movie.imdbID %>
+      </div>  
+    </div>  
+    <div class="row">
+      <div class="col-sm-4">
+        Beskrivelse:
+      </div>  
+      <div class="col-sm-8">
+        <%= @movie.description %>
+      </div>  
+    </div>  
+  </div>
+  <div class="col-sm-4">
+    <div class="row">
+      <div class="col-sm-4">
+            Plakat:
+      </div>  
+      <div class="col-sm-8">
+             &nbsp
+      </div>  
+      <div class="row">
+        <div class="col-sm-4">
+            &nbsp
+        </div>  
+        <div class="col-sm-8">
+          <% unless @movie.poster.blank? %>   
+            <img src=<%= @movie.poster %> alt="Plakat" height="200">
+          <% end %>
+        </div>  
+      </div>  
+    </div>  
+  </div>
+</div>
+<hr>
+<ul>
+    <li><%= link_to "Rediger", edit_movie_path(@movie) %></li>
+    <li><%= link_to "Slet", movie_path(@movie),
+                  method: :delete,
+                  data: { confirm: "Er du sikker?" } %></li>
+ 
+
+</ul>
+

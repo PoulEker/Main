@@ -1,0 +1,20 @@
+<%= form_tag(omdb_path, :method => "get")   %>
+<div class="input-group">  
+    <%= search_field_tag :search, params[:search], placeholder: "Søg", class: "form-control" %>  
+    <div class="input-group-btn">  
+      <%= button_tag "Søg", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>  
+    </div>  
+</div>  
+<hr>
+   <%# <% if !@omdb.errors.empty? %>
+      <%#<div>
+         <%#<ul>
+            <% @omdb.errors.full_messages.each do |msg| %>
+            <%#   <li><%= msg </li> %>
+            <%#<% end %>
+         <%#</ul>
+      <%#</div>
+   <%# <% end %>
+   <div>
+      <%= yield %>
+    </div>
